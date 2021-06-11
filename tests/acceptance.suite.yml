@@ -2,8 +2,10 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: http://127.0.0.1:8080/
-            browser: firefox
+            url: http://127.0.0.1/
+            browser: chrome
+            port: 4444
+            restart: true
         - Yii2:
             part: orm
             entryScript: index-test.php
