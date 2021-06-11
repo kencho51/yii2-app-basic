@@ -156,7 +156,7 @@ To execute acceptance tests do the following:
 1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
 
 2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
-   version of Codeception
+   version of Codeception, also need to install `composer require --dev "codeception/module-webdriver"`
 
 3. Update dependencies with Composer 
 
