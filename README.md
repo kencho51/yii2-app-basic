@@ -157,30 +157,37 @@ To execute acceptance tests do the following:
 
 2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
    version of Codeception, also need to install `composer require --dev "codeception/module-webdriver"`
-
+   
 3. Update dependencies with Composer 
 
     ```
     composer update  
     ```
 
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
+4. Update `acceptance.yml`:
+   ```yaml
+   class_name: AcceptanceTester
+   modules:
+       enabled:
+           - WebDriver:
+               url: http://localhost:8080/
+               browser: chrome
+               restart: true
+               capabilities:
+                   chromeOptions:
+                       args: [ "--headless", "--disable-gpu" ] # Run Chrome in headless mode
+           - Yii2:
+               part: orm
+               entryScript: index-test.php
+               cleanup: false # don't cleanup the fixtures
+   extensions:
+      enabled:
+         - Codeception\Extension\RunProcess:
+              0: java -jar -Dwebdriver.chrome.driver=/Volumes/kencho/yii2-app-basic/tools/chromedriver /Volumes/kencho/yii2-app-basic/tools/selenium-server-standalone-3.141.59.jar
+              1: /Volumes/kencho/yii2-app-basic/tests/bin/yii serve
+              sleep: 1
+   ```  
 
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
-
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
-
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
-    # for Google Chrome
-    xattr -d com.apple.quarantine tools/chromedriver # To solve Error: “chromedriver” cannot be opened because the developer cannot be verified.
-    java -jar -Dwebdriver.chrome.driver=tools/chromedriver tools/selenium-server-standalone-3.141.59.jar
-    ``` 
-    
     As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
     
     ```
@@ -196,7 +203,7 @@ To execute acceptance tests do the following:
    The database configuration can be found at `config/test_db.php`.
 
 
-6. Start web server:
+6. (Optional) Start web server:
 
     ```
     tests/bin/yii serve  
