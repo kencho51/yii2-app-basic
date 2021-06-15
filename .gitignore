@@ -34,3 +34,6 @@ tests/_support/_generated
 
 # composer lock file
 composer.lock
+
+# ignore chromedriver and selenium
+/tools
