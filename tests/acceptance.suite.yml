@@ -2,10 +2,12 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: http://127.0.0.1/
+            url: http://localhost:8080/
             browser: chrome
-            port: 4444
             restart: true
+            capabilities:
+                chromeOptions:
+                    args: [ "--headless", "--disable-gpu" ] # Run Chrome in headless mode
         - Yii2:
             part: orm
             entryScript: index-test.php
