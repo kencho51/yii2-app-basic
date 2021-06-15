@@ -12,3 +12,10 @@ modules:
             part: orm
             entryScript: index-test.php
             cleanup: false
+
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+              0: java -jar -Dwebdriver.chrome.driver=/Volumes/kencho/yii2-app-basic/tools/chromedriver /Volumes/kencho/yii2-app-basic/tools/selenium-server-standalone-3.141.59.jar
+              1: /Volumes/kencho/yii2-app-basic/tests/bin/yii serve
+              sleep: 1
