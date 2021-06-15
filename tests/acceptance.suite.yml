@@ -11,7 +11,7 @@ modules:
         - Yii2:
             part: orm
             entryScript: index-test.php
-            cleanup: false
+            cleanup: false # don't cleanup the fixtures
 
 extensions:
     enabled:
