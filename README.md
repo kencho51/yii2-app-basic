@@ -199,7 +199,8 @@ To execute acceptance tests do the following:
 6. Start web server:
 
     ```
-    tests/bin/yii serve
+    tests/bin/yii serve  
+    Server started on http://localhost:8080/  
     ```
 
 7. Now you can run all available tests
