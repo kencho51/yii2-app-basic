@@ -177,7 +177,8 @@ To execute acceptance tests do the following:
     java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
     
     # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
+    xattr -d com.apple.quarantine tools/chromedriver # To solve Error: “chromedriver” cannot be opened because the developer cannot be verified.
+    java -jar -Dwebdriver.chrome.driver=tools/chromedriver tools/selenium-server-standalone-3.141.59.jar
     ``` 
     
     As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
