@@ -217,7 +217,7 @@ To execute acceptance tests do the following:
    vendor/bin/codecept run
 
    # run acceptance tests
-   vendor/bin/codecept run acceptance
+   vendor/bin/codecept run acceptance --steps --fail-fast
 
    # run only unit and functional tests
    vendor/bin/codecept run unit,functional
