@@ -192,6 +192,7 @@ To execute acceptance tests do the following:
     
     ```
     docker run --net=host selenium/standalone-firefox:2.53.0
+    docker run --net=host selenium/standalone-chrome:3.141.59-oxygen
     ```
 
 5. (Optional) Create `yii2basic_test` database and update it by applying migrations if you have them.
