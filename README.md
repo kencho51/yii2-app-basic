@@ -170,7 +170,7 @@ To execute acceptance tests do the following:
    modules:
        enabled:
            - WebDriver:
-               url: http://localhost:8080/
+               url: http://localhost:56789/
                browser: chrome
                restart: true
                capabilities:
@@ -184,7 +184,7 @@ To execute acceptance tests do the following:
       enabled:
          - Codeception\Extension\RunProcess:
               0: java -jar -Dwebdriver.chrome.driver=/Volumes/kencho/yii2-app-basic/tools/chromedriver /Volumes/kencho/yii2-app-basic/tools/selenium-server-standalone-3.141.59.jar
-              1: /Volumes/kencho/yii2-app-basic/tests/bin/yii serve
+              1: /Volumes/kencho/yii2-app-basic/tests/bin/yii serve -p 56789
               sleep: 1
    ```  
 
