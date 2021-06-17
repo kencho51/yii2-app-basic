@@ -13,6 +13,7 @@ class ContactCest
     {
         $I->wantTo('ensure that contact page works');
         $I->see('Contact', 'h1');
+        $I->see('If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.', 'p');
     }
 
     public function contactFormCanBeSubmitted(AcceptanceTester $I)
@@ -30,5 +31,6 @@ class ContactCest
 
         $I->dontSeeElement('#contact-form');
         $I->see('Thank you for contacting us. We will respond to you as soon as possible.');
+        $I->see('Note that if you turn on the Yii debugger, you should be able to view the mail message on the mail panel of the debugger.', 'p');
     }
 }
