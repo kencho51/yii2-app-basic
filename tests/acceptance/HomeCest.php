@@ -9,8 +9,6 @@ class HomeCest
         $I->amOnPage(Url::toRoute('/site/index'));
         $I->see('Congratulations!', 'h1');
         $I->see('You have successfully created your Yii-powered application', 'p');
-
-
     }
 
     public function ensureThatThereAreLinks(AcceptanceTester $I)
@@ -51,6 +49,26 @@ class HomeCest
         $I->amOnPage(Url::toRoute('/site/index'));
         $I->click(['link' => 'Get started with Yii']);
         $I->amOnUrl('https://www.yiiframework.com/');
+    }
 
+    public function ensureThatYiiDocButtonWorks(AcceptanceTester $I)
+    {
+        $I->amOnPage(Url::toRoute('/site/index'));
+        $I->click('#yii-document');
+        $I->amOnUrl('http://www.yiiframework.com/doc/');
+    }
+
+    public function ensureThatYiiForumButtonWorks(AcceptanceTester $I)
+    {
+        $I->amOnPage(Url::toRoute('/site/index'));
+        $I->click('#yii-forum');
+        $I->amOnUrl('http://www.yiiframework.com/forum/');
+    }
+
+    public function ensureThatYiiExtensionButtonWorks(AcceptanceTester $I)
+    {
+        $I->amOnPage(Url::toRoute('/site/index'));
+        $I->click('#yii-extension');
+        $I->amOnUrl('http://www.yiiframework.com/extensions/');
     }
 }
